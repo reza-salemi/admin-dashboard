@@ -3,7 +3,7 @@ import FormInput from "@features/authentication/components/form-input";
 
 import { persianStrings } from "@features/authentication/constants";
 
-const Register: React.FC = () => {
+export const Register: React.FC = () => {
   const {
     alreadyRegistered,
     help,
@@ -60,5 +60,3 @@ const Register: React.FC = () => {
     </>
   );
 };
-
-export default Register;

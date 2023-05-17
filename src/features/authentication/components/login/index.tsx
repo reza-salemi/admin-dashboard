@@ -3,7 +3,7 @@ import FormInput from "@features/authentication/components/form-input";
 
 import { persianStrings } from "@features/authentication/constants";
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
   const { help, notRegisteredYet, login, register, title, mobile, password } =
     persianStrings;
 
@@ -50,5 +50,3 @@ const Login: React.FC = () => {
     </div>
   );
 };
-
-export default Login;
