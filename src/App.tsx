@@ -1,4 +1,4 @@
-import Login from "@features/authentication/components/Login";
+import Login from "@features/authentication/components/login";
 
 function App() {
   return (
