@@ -1,10 +1,19 @@
 import logo from "@assets/images/logo.svg";
-import FormInput from "@features/authentication/components/FormInput";
+import FormInput from "@features/authentication/components/form-input";
 
-import { persianStrings } from "./constants";
+import { persianStrings } from "../../constants";
 
 const Login: React.FC = () => {
-  const { help, notRegisteredYet, login, register, title } = persianStrings;
+  const {
+    help,
+    notRegisteredYet,
+    login,
+    register,
+    title,
+    mobile,
+    password,
+    repeatPassword,
+  } = persianStrings;
 
   return (
     <div className="main d-flex justify-content-center w-100">
@@ -27,8 +36,8 @@ const Login: React.FC = () => {
                   <div className="card-body">
                     <div className="m-sm-4">
                       <form>
-                        <FormInput label="موبایل" type="text" />
-                        <FormInput label="رمز عبور" type="password" />
+                        <FormInput label={mobile} type="text" />
+                        <FormInput label={password} type="password" />
                         <div className="text-center mt-3">
                           <button
                             type="submit"
