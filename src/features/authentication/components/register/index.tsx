@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
 
@@ -9,12 +11,21 @@ export const Register: React.FC = () => {
     alreadyRegistered,
     help,
     login,
-    register,
+    register: registerString,
     mobile,
     password,
     repeatPassword,
     title,
   } = persianStrings;
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <div className="text-center mt-4">
@@ -32,13 +43,22 @@ export const Register: React.FC = () => {
       <div className="card">
         <div className="card-body">
           <div className="m-sm-4">
-            <form>
-              <FormInput label={mobile} type="text" />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormInput
+                {...register("mobile", {
+                  required: "موبایل الزامی است",
+                  maxLength: 11,
+                  minLength: 11,
+                })}
+                error={errors.mobile?.message}
+                label={mobile}
+                type="text"
+              />
               <FormInput label={password} type="password" />
               <FormInput label={repeatPassword} type="password" />
               <div className="text-center mt-3">
                 <button type="submit" className="btn btn-lg btn-primary">
-                  {register}
+                  {registerString}
                 </button>
               </div>
             </form>
