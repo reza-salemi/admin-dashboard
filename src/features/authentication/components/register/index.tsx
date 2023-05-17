@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
 
@@ -22,7 +23,9 @@ export const Register: React.FC = () => {
         <p className="lead">{help}</p>
         <p className="lead">
           {alreadyRegistered}
-          <a className="me-2">{login}</a>
+          <Link to="/login" className="me-2">
+            {login}
+          </Link>
         </p>
       </div>
 
