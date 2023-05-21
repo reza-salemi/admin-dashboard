@@ -1,5 +1,17 @@
-export interface FormInputProps {
+import { InputHTMLAttributes } from "react";
+import {
+  DeepMap,
+  FieldError,
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormRegister,
+} from "react-hook-form";
+export interface FormInputProps<TFormValues extends FieldValues>
+  extends InputHTMLAttributes<HTMLInputElement> {
+  name: Path<TFormValues>;
   label: string;
-  type: string;
-  error?: string;
+  rules?: RegisterOptions;
+  register?: UseFormRegister<TFormValues>;
+  error?: Partial<DeepMap<TFormValues, FieldError>>;
 }

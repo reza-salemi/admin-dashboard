@@ -1,19 +1,24 @@
+import { FieldValues } from "react-hook-form";
 import { FormInputProps } from "./type";
 
-const FormInput: React.FC<FormInputProps> = ({
-  label,
-  type,
-  error,
-  ...rest
-}) => {
+const FormInput = <TFormValues extends FieldValues>(
+  props: FormInputProps<TFormValues>
+) => {
+  const { name, label, register, rules, error, ...rest } = props;
+  const errorMessage = error?.[name]?.message;
+
   return (
     <div className="mb-3">
       <label className="form-label">{label}</label>
       <input
-        className={`form-control form-control-lg ${error && "is-invalid"}`}
-        type={type}
+        name={name}
+        className={`form-control form-control-lg ${
+          error?.[name] && "is-invalid"
+        }`}
         {...rest}
+        {...(register && register(name, rules))}
       />
+      {errorMessage && <p style={{ color: "#d9534f" }}>{errorMessage}</p>}
     </div>
   );
 };
