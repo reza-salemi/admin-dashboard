@@ -4,7 +4,11 @@ import { useForm } from "react-hook-form";
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
 
-import { persianStrings } from "@features/authentication/constants";
+import {
+  persianStrings,
+  validationRules,
+} from "@features/authentication/constants";
+import { RegisterFormData } from "./interface";
 
 export const Register: React.FC = () => {
   const {
@@ -22,9 +26,15 @@ export const Register: React.FC = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm<RegisterFormData>();
 
-  const onSubmit = (data) => console.log(data);
+  const {
+    mobile: mobileValidationRules,
+    password: passwordValidationRules,
+    "repeat-password": repeatPasswordValidationRules,
+  } = validationRules;
+
+  const onSubmit = (data: RegisterFormData) => console.log(data);
 
   return (
     <>
@@ -45,17 +55,29 @@ export const Register: React.FC = () => {
           <div className="m-sm-4">
             <form onSubmit={handleSubmit(onSubmit)}>
               <FormInput
-                {...register("mobile", {
-                  required: "موبایل الزامی است",
-                  maxLength: 11,
-                  minLength: 11,
-                })}
-                error={errors.mobile?.message}
+                name="mobile"
+                error={errors}
+                register={register}
+                rules={mobileValidationRules}
                 label={mobile}
                 type="text"
               />
-              <FormInput label={password} type="password" />
-              <FormInput label={repeatPassword} type="password" />
+              <FormInput
+                name="password"
+                rules={passwordValidationRules}
+                label={password}
+                register={register}
+                type="password"
+                error={errors}
+              />
+              <FormInput
+                name="repeatPassword"
+                rules={repeatPasswordValidationRules}
+                label={repeatPassword}
+                register={register}
+                type="password"
+                error={errors}
+              />
               <div className="text-center mt-3">
                 <button type="submit" className="btn btn-lg btn-primary">
                   {registerString}
