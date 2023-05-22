@@ -8,7 +8,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className="btn btn-primary"
+      className="btn"
       style={{
         width,
         height,
