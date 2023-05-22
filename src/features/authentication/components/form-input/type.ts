@@ -10,7 +10,7 @@ import {
 export interface FormInputProps<TFormValues extends FieldValues>
   extends InputHTMLAttributes<HTMLInputElement> {
   name: Path<TFormValues>;
-  label: string;
+  placeholder: string;
   rules?: RegisterOptions;
   register?: UseFormRegister<TFormValues>;
   error?: Partial<DeepMap<TFormValues, FieldError>>;

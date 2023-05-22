@@ -26,8 +26,12 @@ export const Login: React.FC = () => {
         <div className="card-body">
           <div className="m-sm-4">
             <form>
-              <FormInput label={mobile} type="text" />
-              <FormInput label={password} type="password" />
+              <FormInput name="mobile" placeholder={mobile} type="text" />
+              <FormInput
+                name="password"
+                placeholder={password}
+                type="password"
+              />
               <div className="text-center mt-3">
                 <button type="submit" className="btn btn-lg btn-primary">
                   {login}

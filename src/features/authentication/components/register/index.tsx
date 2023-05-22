@@ -59,13 +59,13 @@ export const Register: React.FC = () => {
                 error={errors}
                 register={register}
                 rules={mobileValidationRules}
-                label={mobile}
+                placeholder={mobile}
                 type="text"
               />
               <FormInput
                 name="password"
                 rules={passwordValidationRules}
-                label={password}
+                placeholder={password}
                 register={register}
                 type="password"
                 error={errors}
@@ -73,7 +73,7 @@ export const Register: React.FC = () => {
               <FormInput
                 name="repeatPassword"
                 rules={repeatPasswordValidationRules}
-                label={repeatPassword}
+                placeholder={repeatPassword}
                 register={register}
                 type="password"
                 error={errors}
