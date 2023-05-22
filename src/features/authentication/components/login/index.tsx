@@ -26,7 +26,7 @@ export const Login: React.FC = () => {
 
       <div className="card">
         <div className="card-body">
-          <div className="m-sm-4">
+          <div className="d-flex justify-content-center m-sm-4">
             <form>
               <FormInput name="mobile" placeholder={mobile} type="text" />
               <FormInput
