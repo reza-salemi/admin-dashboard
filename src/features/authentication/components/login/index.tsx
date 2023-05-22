@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+
+import Button from "components/Button";
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
 
@@ -33,9 +35,9 @@ export const Login: React.FC = () => {
                 type="password"
               />
               <div className="text-center mt-3">
-                <button type="submit" className="btn btn-lg btn-primary">
+                <Button className="btn-primary" type="submit">
                   {login}
-                </button>
+                </Button>
               </div>
             </form>
           </div>

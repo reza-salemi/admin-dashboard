@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
+import Button from "components/Button";
 
 import {
   persianStrings,
@@ -79,9 +80,9 @@ export const Register: React.FC = () => {
                 error={errors}
               />
               <div className="text-center mt-3">
-                <button type="submit" className="btn btn-lg btn-primary">
+                <Button type="submit" className="btn-primary">
                   {registerString}
-                </button>
+                </Button>
               </div>
             </form>
           </div>
