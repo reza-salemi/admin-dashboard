@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, ReactNode } from "react";
 import {
   DeepMap,
   FieldError,
@@ -14,4 +14,6 @@ export interface FormInputProps<TFormValues extends FieldValues>
   rules?: RegisterOptions;
   register?: UseFormRegister<TFormValues>;
   error?: Partial<DeepMap<TFormValues, FieldError>>;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }

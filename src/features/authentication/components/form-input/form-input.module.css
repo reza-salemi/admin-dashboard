@@ -1,0 +1,21 @@
+.input-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input-wrapper div {
+  position: absolute;
+}
+
+.left-icon {
+  left: 0px;
+  padding: 0.36rem 0.438rem;
+}
+
+.right-icon {
+  padding: 0.36rem 0.438rem;
+}
+.input-field {
+  width: 100%;
+  outline: none;
+}
