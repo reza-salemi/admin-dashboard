@@ -1,6 +1,9 @@
 .input-wrapper {
   position: relative;
-  margin-bottom: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 1.8rem;
 }
 
 .input-wrapper div {
@@ -18,4 +21,10 @@
 .input-field {
   width: 100%;
   outline: none;
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 0.75rem;
+  margin-bottom: 0.6rem;
 }

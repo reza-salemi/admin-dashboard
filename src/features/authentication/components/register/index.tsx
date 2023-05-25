@@ -61,7 +61,7 @@ export const Register: React.FC = () => {
                 register={register}
                 rules={mobileValidationRules}
                 placeholder={mobile}
-                type="text"
+                type="number"
               />
               <FormInput
                 name="password"
