@@ -12,16 +12,9 @@ export const Login: React.FC = () => {
 
   return (
     <>
-      <div className="text-center mt-4">
+      <div className="text-center mb-4">
         <img src={logo} style={{ height: "100px" }} alt="Logo" />
         <h1 className="h2">{title}</h1>
-        <p className="lead">{help}</p>
-        <p className="lead">
-          {notRegisteredYet}
-          <Link to="/register" className="me-2">
-            {register}
-          </Link>
-        </p>
       </div>
 
       <div className="card">
@@ -41,6 +34,16 @@ export const Login: React.FC = () => {
               </div>
             </form>
           </div>
+        </div>
+
+        <div className="text-center">
+          <p className="lead">{help}</p>
+          <p className="lead">
+            {notRegisteredYet}
+            <Link to="/register" className="me-2">
+              {register}
+            </Link>
+          </p>
         </div>
       </div>
     </>
