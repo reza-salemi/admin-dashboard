@@ -11,7 +11,6 @@ const FormInput = <TFormValues extends FieldValues>(
     name,
     placeholder,
     register,
-    rules,
     error,
     type,
     leftIcon,
@@ -64,7 +63,7 @@ const FormInput = <TFormValues extends FieldValues>(
           style={{ width: "100%", height: "42px", paddingRight: "1.6rem" }}
           type={inputType}
           {...rest}
-          {...(register && register(name, rules))}
+          {...(register && register(name))}
         />
       </div>
       {errorMessage && (
