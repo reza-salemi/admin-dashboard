@@ -1,7 +1,7 @@
 import { ButtonProps } from "./interface";
 
 export default function Button({
-  width = "300px",
+  width = "390px",
   height = "42px",
   children,
   ...rest
@@ -13,6 +13,7 @@ export default function Button({
         width,
         height,
         fontSize: "1rem",
+        borderRadius: "0.438rem",
       }}
       {...rest}
     >

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
 import Button from "components/Button";
 
@@ -15,13 +14,12 @@ import { RegisterFormData } from "./interface";
 export const Register: React.FC = () => {
   const {
     alreadyRegistered,
-    help,
     login,
+    signIn,
     register: registerString,
     mobile,
     password,
     repeatPassword,
-    title,
   } = persianStrings;
 
   const {
@@ -36,11 +34,6 @@ export const Register: React.FC = () => {
 
   return (
     <>
-      <div className="text-center mb-4">
-        <img src={logo} style={{ height: "100px" }} />
-        <h1 className="h2">{title}</h1>
-      </div>
-
       <div className="card">
         <div className="card-body">
           <div className="d-flex justify-content-center m-sm-4">
@@ -76,11 +69,10 @@ export const Register: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <p className="lead">{help}</p>
-          <p className="lead">
+          <p className="lead" style={{ fontSize: "0.875rem" }}>
             {alreadyRegistered}
             <Link to="/login" className="me-2">
-              {login}
+              {signIn}
             </Link>
           </p>
         </div>
