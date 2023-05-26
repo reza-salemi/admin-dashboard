@@ -60,8 +60,9 @@ export const Register: React.FC = () => {
                 error={errors}
               />
               <FormInput
-                name="repeatPassword"
+                name="passwordConfirm"
                 placeholder={repeatPassword}
+                register={register}
                 type="password"
                 error={errors}
               />
