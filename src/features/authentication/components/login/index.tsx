@@ -6,7 +6,7 @@ import FormInput from "@features/authentication/components/form-input";
 import { persianStrings } from "@features/authentication/constants";
 
 export const Login: React.FC = () => {
-  const { createAccount, notRegisteredYet, login, register, mobile, password } =
+  const { createAccount, notRegisteredYet, login, mobile, password } =
     persianStrings;
 
   return (

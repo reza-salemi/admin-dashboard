@@ -14,7 +14,6 @@ import { RegisterFormData } from "./interface";
 export const Register: React.FC = () => {
   const {
     alreadyRegistered,
-    login,
     signIn,
     register: registerString,
     mobile,
