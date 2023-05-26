@@ -1,2 +1,2 @@
 export { persianStrings } from "./persianStrings";
-export { validationRules } from "./validationRules";
+export { validationSchema } from "./validationRules";

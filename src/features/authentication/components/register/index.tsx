@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import logo from "@assets/images/logo.svg";
 import FormInput from "@features/authentication/components/form-input";
@@ -7,7 +8,7 @@ import Button from "components/Button";
 
 import {
   persianStrings,
-  validationRules,
+  validationSchema,
 } from "@features/authentication/constants";
 import { RegisterFormData } from "./interface";
 
@@ -27,13 +28,9 @@ export const Register: React.FC = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<RegisterFormData>();
-
-  const {
-    mobile: mobileValidationRules,
-    password: passwordValidationRules,
-    "repeat-password": repeatPasswordValidationRules,
-  } = validationRules;
+  } = useForm<RegisterFormData>({
+    resolver: yupResolver(validationSchema),
+  });
 
   const onSubmit = (data: RegisterFormData) => console.log(data);
 
@@ -52,13 +49,11 @@ export const Register: React.FC = () => {
                 name="mobile"
                 error={errors}
                 register={register}
-                rules={mobileValidationRules}
                 placeholder={mobile}
                 type="number"
               />
               <FormInput
                 name="password"
-                rules={passwordValidationRules}
                 placeholder={password}
                 register={register}
                 type="password"
@@ -66,9 +61,7 @@ export const Register: React.FC = () => {
               />
               <FormInput
                 name="repeatPassword"
-                rules={repeatPasswordValidationRules}
                 placeholder={repeatPassword}
-                register={register}
                 type="password"
                 error={errors}
               />
