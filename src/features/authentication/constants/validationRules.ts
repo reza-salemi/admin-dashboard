@@ -14,7 +14,7 @@ export const validationSchema = yup.object().shape({
       /^(?=.*[a-z])(?=.*[A-Z])/,
       "رمز عبور باید شامل حروف کوچک و بزرگ باشد."
     ),
-  passwordConfirm: yup
+  confirmPassword: yup
     .string()
     .required("لطفاً رمز عبور را تکرار کنید.")
     .oneOf([yup.ref("password")], "رمز عبور باید یکسان باشد."),

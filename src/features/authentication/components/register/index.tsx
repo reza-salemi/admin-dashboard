@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Form, Link, useSubmit } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -10,6 +10,7 @@ import {
   validationSchema,
 } from "@features/authentication/constants";
 import { RegisterFormData } from "./interface";
+import { httpService } from "core/http-service";
 
 export const Register: React.FC = () => {
   const {
@@ -29,14 +30,19 @@ export const Register: React.FC = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data: RegisterFormData) => console.log(data);
+  const submitForm = useSubmit();
+
+  const onSubmit = (data: RegisterFormData) => {
+    const { confirmPassword, ...userData } = data;
+    submitForm(userData, { method: "post" });
+  };
 
   return (
     <>
       <div className="card">
         <div className="card-body">
           <div className="d-flex justify-content-center m-sm-4">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
               <FormInput
                 name="mobile"
                 error={errors}
@@ -52,7 +58,7 @@ export const Register: React.FC = () => {
                 error={errors}
               />
               <FormInput
-                name="passwordConfirm"
+                name="confirmPassword"
                 placeholder={repeatPassword}
                 register={register}
                 type="password"
@@ -63,7 +69,7 @@ export const Register: React.FC = () => {
                   {registerString}
                 </Button>
               </div>
-            </form>
+            </Form>
           </div>
         </div>
 
@@ -79,3 +85,10 @@ export const Register: React.FC = () => {
     </>
   );
 };
+
+export async function registerAction({ request }: any) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  const response = await httpService.post("/Users", data);
+  return response.status === 200;
+}

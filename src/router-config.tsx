@@ -1,6 +1,7 @@
 import { Login, Register } from "@features/authentication/components";
 import { AuthenticationLayout } from "./layouts/authentication-layout";
 import { createBrowserRouter } from "react-router-dom";
+import { registerAction } from "@features/authentication/components/register";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+        action: registerAction,
       },
     ],
   },
