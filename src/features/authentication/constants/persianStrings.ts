@@ -10,4 +10,5 @@ export const persianStrings = {
   mobile: "موبایل",
   password: "رمز عبور",
   repeatPassword: "تکرار رمز عبور",
+  inProgress: "در حال انجام عملیات",
 };

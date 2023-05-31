@@ -1,4 +1,12 @@
-import { Form, Link, useSubmit } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useNavigate,
+  useNavigation,
+  useSubmit,
+  useRouteError,
+} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -11,6 +19,7 @@ import {
 } from "@features/authentication/constants";
 import { RegisterFormData } from "./interface";
 import { httpService } from "core/http-service";
+import { useEffect } from "react";
 
 export const Register: React.FC = () => {
   const {
@@ -20,6 +29,7 @@ export const Register: React.FC = () => {
     mobile,
     password,
     repeatPassword,
+    inProgress,
   } = persianStrings;
 
   const {
@@ -30,12 +40,26 @@ export const Register: React.FC = () => {
     resolver: yupResolver(validationSchema),
   });
 
+  const navigation = useNavigation();
   const submitForm = useSubmit();
+  const navigate = useNavigate();
+  const routerErrors = useRouteError();
+  const isSuccessOperation = useActionData();
+
+  const isSubmitting = navigation.state !== "idle";
 
   const onSubmit = (data: RegisterFormData) => {
     const { confirmPassword, ...userData } = data;
     submitForm(userData, { method: "post" });
   };
+
+  useEffect(() => {
+    if (isSuccessOperation) {
+      setTimeout(() => {
+        navigate("./login");
+      }, 2000);
+    }
+  }, [isSuccessOperation]);
 
   return (
     <>
@@ -65,10 +89,27 @@ export const Register: React.FC = () => {
                 error={errors}
               />
               <div className="text-center mt-3">
-                <Button type="submit" className="btn-primary">
-                  {registerString}
+                <Button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="btn-primary"
+                >
+                  {isSubmitting ? inProgress : registerString}
                 </Button>
               </div>
+              {isSuccessOperation && (
+                <div className="alert alert-success text-sucess p-2 mt-3">
+                  عملیات با موفقیت انجام شد به صفحه ورود منتقل می شوید
+                </div>
+              )}
+
+              {routerErrors && (
+                <div className="alert alert-danger text-danger p-2 mt-3">
+                  {routerErrors.response?.data.map((error) => (
+                    <p className="mb-0">{error.description}</p>
+                  ))}
+                </div>
+              )}
             </Form>
           </div>
         </div>
