@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import logo from "@assets/images/logo.svg";
 import { persianStrings } from "@features/authentication/constants";
+import SelectLangauge from "components/language-selector";
 
 export const AuthenticationLayout = () => {
   const { title } = persianStrings;
@@ -8,6 +9,9 @@ export const AuthenticationLayout = () => {
   return (
     <>
       <div className="main d-flex justify-content-center w-100">
+        <nav className="navbar shadow-sm">
+          <SelectLangauge />
+        </nav>
         <main className="content d-flex p-0">
           <div className="container d-flex flex-column">
             <div className="row h-100">
