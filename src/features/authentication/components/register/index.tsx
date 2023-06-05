@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   Form,
   Link,
@@ -11,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import FormInput from "@features/authentication/components/form-input";
-import Button from "components/Button";
+import Button from "components/button";
 
 import {
   persianStrings,
@@ -19,7 +21,6 @@ import {
 } from "@features/authentication/constants";
 import { RegisterFormData } from "./interface";
 import { httpService } from "core/http-service";
-import { useEffect } from "react";
 
 export const Register: React.FC = () => {
   const {

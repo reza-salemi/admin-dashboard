@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Button from "components/Button";
+import Button from "components/button";
 import FormInput from "@features/authentication/components/form-input";
 
 import { persianStrings } from "@features/authentication/constants";
