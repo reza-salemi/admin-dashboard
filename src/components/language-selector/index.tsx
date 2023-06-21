@@ -49,17 +49,17 @@ const LanguageSelector = () => {
         className={`dropdown-menu dropdown-menu-end ${
           isDropdownOpen && "show"
         }`}
-        style={{ textAlign: "right" }}
+        style={{ textAlign: language === "fa" ? "right" : "left" }}
       >
         <a
-          className="dropdown-item fw-bolder"
+          className="dropdown-item fw-bolder d-flex align-items-center gap-2"
           onClick={() => changeLanguage("fa")}
         >
           <img className="ms-2" src={FAFlagImage} alt="FA Flag" width="20px" />
           <span className="align-middle">{fa}</span>
         </a>
         <a
-          className="dropdown-item fw-bolder"
+          className="dropdown-item fw-bolder d-flex align-items-center gap-2"
           onClick={() => changeLanguage("en")}
         >
           <img className="ms-2" src={USFlagImage} alt="US Flag" width="20px" />
