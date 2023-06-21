@@ -2,9 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import USFlagImage from "@assets/images/us.png";
 import FAFlagImage from "@assets/images/fa.png";
 import { languageSelectorStrings } from "./stings";
+import { useAppContext } from "contexts/app";
 
 const LanguageSelector = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const {
+    changeLanguage,
+    state: { language },
+  } = useAppContext();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const { fa, en } = languageSelectorStrings;
@@ -34,7 +39,10 @@ const LanguageSelector = () => {
   return (
     <div className="dropdown">
       <a className="nav-flag dropdown-toggle" onClick={toggleDropdown}>
-        <img src={USFlagImage} alt="US Flag" />
+        <img
+          src={language === "fa" ? FAFlagImage : USFlagImage}
+          alt="US Flag"
+        />
       </a>
       <div
         ref={dropdownRef}
@@ -43,11 +51,17 @@ const LanguageSelector = () => {
         }`}
         style={{ textAlign: "right" }}
       >
-        <a className="dropdown-item fw-bolder">
+        <a
+          className="dropdown-item fw-bolder"
+          onClick={() => changeLanguage("fa")}
+        >
           <img className="ms-2" src={FAFlagImage} alt="FA Flag" width="20px" />
           <span className="align-middle">{fa}</span>
         </a>
-        <a className="dropdown-item fw-bolder">
+        <a
+          className="dropdown-item fw-bolder"
+          onClick={() => changeLanguage("en")}
+        >
           <img className="ms-2" src={USFlagImage} alt="US Flag" width="20px" />
           <span className="align-middle">{en}</span>
         </a>

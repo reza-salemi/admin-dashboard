@@ -11,6 +11,7 @@ export default defineConfig({
       "@features": resolve(__dirname, "./src/features"),
       components: resolve(__dirname, "./src/components"),
       core: resolve(__dirname, "./src/core"),
+      contexts: resolve(__dirname, "./src/contexts"),
     },
   },
 });

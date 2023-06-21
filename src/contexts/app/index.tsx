@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useReducer } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 import { useTranslation } from "react-i18next";
 import { AppState } from "./types";
 import appReducer from "./reducer";
@@ -16,6 +22,13 @@ const initialState: AppState = {
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(state.language);
+    localStorage.setItem("language", state.language);
+    document.body.dataset.direction = state.language === "fa" ? "rtl" : "ltr";
+  }, [state.language]);
 
   const changeLanguage = (language: string) => {
     dispatch({ type: "CHANGE_LANGUAGE", payload: language });
