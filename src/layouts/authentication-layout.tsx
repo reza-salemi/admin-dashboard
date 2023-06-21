@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import logo from "@assets/images/logo.svg";
-import { persianStrings } from "@features/authentication/constants";
 import SelectLangauge from "components/language-selector";
 
 export const AuthenticationLayout = () => {
-  const { title } = persianStrings;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -19,7 +20,7 @@ export const AuthenticationLayout = () => {
                 <div className="d-table-cell align-middle">
                   <div className="text-center mb-4">
                     <img src={logo} style={{ height: "80px" }} alt="Logo" />
-                    <h1 className="h2 mt-3">{title}</h1>
+                    <h1 className="h2 mt-3">{t("auth.title")}</h1>
                   </div>
                   <Outlet />
                 </div>

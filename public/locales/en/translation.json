@@ -1,5 +1,30 @@
 {
-  "register": {
-    "register": "Register"
+  "auth": {
+    "title": "Online Education Platform",
+    "introMessage": "Register to use the features of Classbon online education platform",
+    "createAccount": "Create an account",
+    "notRegisteredYet": "Need an account?",
+    "register": "Register",
+    "login": "Login",
+    "mobile": "Mobile",
+    "password": "Password",
+    "repeatPassword": "Repeat password",
+    "alreadyRegistered": "Already registered?",
+    "signIn": "Sign in",
+    "inProgress": "in progress",
+    "successOperation": "Your changes have been successfully saved",
+    "validation": {
+      "mobileRequired": "Mobile is required",
+      "passwordRequired": "Password is required",
+      "repeatPasswordRequired": "Repeat password  is required",
+      "mobileLength": "Mobile number must be 11 digits",
+      "notMatching": "Password do not match",
+      "PasswordTooShort": "Passwords must be at least 6 characters",
+      "DuplicateUserName": "This username is already taken"
+    }
+  },
+  "language": {
+    "en": "English",
+    "fa": "Persian"
   }
 }

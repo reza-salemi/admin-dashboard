@@ -1,5 +1,30 @@
 {
-  "register": {
-    "register": "ثبت نام کنید"
+  "auth": {
+    "title": "پلتفرم آموزش آنلاین",
+    "introMessage": "جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید",
+    "createAccount": "ایجاد حساب کاربردی",
+    "notRegisteredYet": "حساب کاربری ندارید؟",
+    "register": "ثبت نام",
+    "login": "ورود",
+    "mobile": "موبایل",
+    "password": "رمز عبور",
+    "repeatPassword": "تکرار رمز عبور",
+    "alreadyRegistered": "قبلا ثبت نام کرده اید؟",
+    "signIn": "وارد شوید",
+    "inProgress": "در حال انجام عملیات",
+    "successOperation": "عملیات با موفقیت انجام شد. به صفحه ورود منتقل می شوید",
+    "validation": {
+      "mobileRequired": "موبایل الزامی است",
+      "passwordRequired": "رمز عبور الزامی است",
+      "repeatPasswordRequired": "تکرار رمز عبور الزامی است",
+      "mobileLength": "شماره موبایل باید 11 رقم باشد",
+      "notMatching": "عدم تطابق رمز های وارد شده",
+      "PasswordTooShort": "حداقل طول رمز عبور باید 6 کاراکتر باشد",
+      "DuplicateUserName": "نام کاربری قبلا توسط کاربر دیگری ثبت شده است"
+    }
+  },
+  "language": {
+    "en": "انگلیسی",
+    "fa": "فارسی"
   }
 }

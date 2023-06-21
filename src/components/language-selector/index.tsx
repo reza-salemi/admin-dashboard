@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+
 import USFlagImage from "@assets/images/us.png";
 import FAFlagImage from "@assets/images/fa.png";
-import { languageSelectorStrings } from "./stings";
 import { useAppContext } from "contexts/app";
 
 const LanguageSelector = () => {
@@ -11,8 +12,7 @@ const LanguageSelector = () => {
     state: { language },
   } = useAppContext();
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const { fa, en } = languageSelectorStrings;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const checkClickOutside = (event: MouseEvent) => {
@@ -41,7 +41,7 @@ const LanguageSelector = () => {
       <a className="nav-flag dropdown-toggle" onClick={toggleDropdown}>
         <img
           src={language === "fa" ? FAFlagImage : USFlagImage}
-          alt="US Flag"
+          alt={language === "fa" ? "IR Flag" : "US FLAG"}
         />
       </a>
       <div
@@ -56,14 +56,14 @@ const LanguageSelector = () => {
           onClick={() => changeLanguage("fa")}
         >
           <img className="ms-2" src={FAFlagImage} alt="FA Flag" width="20px" />
-          <span className="align-middle">{fa}</span>
+          <span className="align-middle">{t("language.fa")}</span>
         </a>
         <a
           className="dropdown-item fw-bolder d-flex align-items-center gap-2"
           onClick={() => changeLanguage("en")}
         >
           <img className="ms-2" src={USFlagImage} alt="US Flag" width="20px" />
-          <span className="align-middle">{en}</span>
+          <span className="align-middle">{t("language.en")}</span>
         </a>
       </div>
     </div>

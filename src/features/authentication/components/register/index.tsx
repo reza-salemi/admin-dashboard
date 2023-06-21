@@ -11,28 +11,16 @@ import {
 } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useTranslation } from "react-i18next";
 
 import FormInput from "@features/authentication/components/form-input";
 import Button from "components/button";
 
-import {
-  persianStrings,
-  validationSchema,
-} from "@features/authentication/constants";
+import { validationSchema } from "@features/authentication/constants";
 import { RegisterFormData } from "./interface";
 import { httpService } from "core/http-service";
 
 export const Register: React.FC = () => {
-  const {
-    alreadyRegistered,
-    signIn,
-    register: registerString,
-    mobile,
-    password,
-    repeatPassword,
-    inProgress,
-  } = persianStrings;
-
   const {
     register,
     formState: { errors },
@@ -40,6 +28,7 @@ export const Register: React.FC = () => {
   } = useForm<RegisterFormData>({
     resolver: yupResolver(validationSchema),
   });
+  const { t } = useTranslation();
 
   const navigation = useNavigation();
   const submitForm = useSubmit();
@@ -72,19 +61,19 @@ export const Register: React.FC = () => {
                 name="mobile"
                 error={errors}
                 register={register}
-                placeholder={mobile}
+                placeholder={t("auth.mobile")}
                 type="number"
               />
               <FormInput
                 name="password"
-                placeholder={password}
+                placeholder={t("auth.password")}
                 register={register}
                 type="password"
                 error={errors}
               />
               <FormInput
                 name="confirmPassword"
-                placeholder={repeatPassword}
+                placeholder={t("auth.repeatPassword")}
                 register={register}
                 type="password"
                 error={errors}
@@ -95,12 +84,12 @@ export const Register: React.FC = () => {
                   type="submit"
                   className="btn-primary"
                 >
-                  {isSubmitting ? inProgress : registerString}
+                  {isSubmitting ? t("auth.inProgress") : t("auth.register")}
                 </Button>
               </div>
               {isSuccessOperation && (
                 <div className="alert alert-success text-sucess p-2 mt-3">
-                  عملیات با موفقیت انجام شد به صفحه ورود منتقل می شوید
+                  {t("auth.successOperation")}
                 </div>
               )}
 
@@ -117,9 +106,9 @@ export const Register: React.FC = () => {
 
         <div className="text-center">
           <p className="lead" style={{ fontSize: "0.875rem" }}>
-            {alreadyRegistered}
+            {t("auth.alreadyRegistered")}
             <Link to="/login" className="me-2">
-              {signIn}
+              {t("auth.signIn")}
             </Link>
           </p>
         </div>
