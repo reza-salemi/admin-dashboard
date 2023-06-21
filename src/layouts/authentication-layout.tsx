@@ -19,7 +19,7 @@ export const AuthenticationLayout = () => {
               <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                 <div className="d-table-cell align-middle">
                   <div className="text-center mb-4">
-                    <img src={logo} style={{ height: "80px" }} alt="Logo" />
+                    <img src={logo} style={{ height: "96px" }} alt="Logo" />
                     <h1 className="h2 mt-3">{t("auth.title")}</h1>
                   </div>
                   <Outlet />
