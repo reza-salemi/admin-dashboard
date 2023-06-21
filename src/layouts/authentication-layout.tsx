@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import logo from "@assets/images/logo.svg";
-import SelectLangauge from "components/language-selector";
+import LanguageSelector from "components/language-selector";
 
 export const AuthenticationLayout = () => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ export const AuthenticationLayout = () => {
     <>
       <div className="main d-flex justify-content-center w-100">
         <nav className="navbar shadow-sm">
-          <SelectLangauge />
+          <LanguageSelector />
         </nav>
         <main className="content d-flex p-0">
           <div className="container d-flex flex-column">
