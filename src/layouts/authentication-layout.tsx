@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import logo from "@assets/images/logo.svg";
 import LanguageSelector from "components/language-selector";
+import ChangeTheme from "components/change-theme";
 
 export const AuthenticationLayout = () => {
   const { t } = useTranslation();
@@ -10,7 +11,8 @@ export const AuthenticationLayout = () => {
   return (
     <>
       <div className="main d-flex justify-content-center w-100">
-        <nav className="navbar shadow-sm">
+        <nav className="navbar shadow-sm justify-content-start gap-3">
+          <ChangeTheme />
           <LanguageSelector />
         </nav>
         <main className="content d-flex p-0">

@@ -8,6 +8,12 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
         language: action.payload,
       };
     }
+    case "CHANGE_THEME": {
+      return {
+        ...state,
+        theme: action.payload,
+      };
+    }
     default:
       return state;
   }

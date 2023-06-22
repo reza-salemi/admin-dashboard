@@ -6,18 +6,14 @@ import {
   useReducer,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { AppState } from "./types";
+import { AppContextType, AppState } from "./types";
 import appReducer from "./reducer";
-
-type AppContextType = {
-  state: AppState;
-  changeLanguage: (language: string) => void;
-};
 
 const AppContext = createContext<AppContextType | null>(null);
 
 const initialState: AppState = {
   language: localStorage.getItem("language") || "fa",
+  theme: localStorage.getItem("theme") || "light",
 };
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
@@ -30,12 +26,20 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
     document.body.dataset.direction = state.language === "fa" ? "rtl" : "ltr";
   }, [state.language]);
 
+  useEffect(() => {
+    localStorage.setItem("theme", state.theme);
+  }, [state.theme]);
+
   const changeLanguage = (language: string) => {
     dispatch({ type: "CHANGE_LANGUAGE", payload: language });
   };
 
+  const changeTheme = (theme: string) => {
+    dispatch({ type: "CHANGE_THEME", payload: theme });
+  };
+
   return (
-    <AppContext.Provider value={{ state, changeLanguage }}>
+    <AppContext.Provider value={{ state, changeLanguage, changeTheme }}>
       {children}
     </AppContext.Provider>
   );
